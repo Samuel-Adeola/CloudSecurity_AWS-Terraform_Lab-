@@ -5,7 +5,7 @@ The recent development in the IT industry has necessitated the use of necessary 
 
 ## 1.0	Introduction
 As the world becomes increasingly digital, the frequency and sophistication of cyberattacks continue to rise, making it crucial for cybersecurity professionals to stay ahead of emerging threats. In-depth investigation and threat hunting are vital practices for identifying, analyzing, and mitigating potential security incidents within any network or cloud environment. To effectively train and test cybersecurity skills, hands-on experience with real-world scenarios is essential. This project focuses on building a comprehensive cybersecurity home lab that simulates both attack and defense environments using AWS services and Infrastructure as Code (IaC) principles via Terraform.
-The lab is designed to replicate the dynamics of a real-world enterprise network, consisting of two workstations: one for the Blue Team, tasked with defending the environment, and one for the Red Team, simulating malicious attackers. The Red Team workstation is equipped with tools and frameworks to emulate various types of cyberattacks, including penetration testing and exploit simulations. On the other hand, the Blue Team workstation is configured with various monitoring, detection, and response tools, enabling the detection and mitigation of simulated threats in real-time.
+The lab is designed to replicate the dynamics of a real-world enterprise network. It consists of two workstations: one for the Blue Team, tasked with defending the environment, and one for the Red Team, simulating malicious attackers. The Red Team workstation is equipped with tools and frameworks to emulate various types of cyberattacks, including penetration testing and exploit simulations. On the other hand, the Blue Team workstation is configured with various monitoring, detection, and response tools, enabling the detection and mitigation of simulated threats in real time.
 By leveraging Terraform, a powerful IaC tool, the entire infrastructure can be provisioned, configured, and maintained in an automated, repeatable, and consistent manner. Terraform allows for the dynamic creation of resources in AWS, including EC2 instances, security groups, IAM roles, and networking setups. This project utilizes a variety of AWS services such as EC2 for virtual machines, S3 for storage, VPC for networking, and CloudWatch for monitoring and log analysis. The combination of Terraform and AWS services enables an efficient, scalable, and cost-effective environment that mirrors real-world cybersecurity challenges.
 
 
@@ -17,7 +17,7 @@ The primary objective of this lab is to create a realistic and interactive envir
 
 •	Red Team Workstation: Simulating advanced persistent threats (APTs), penetration testing, and attack vectors.
 
-This lab provides a hands-on platform for executing and analyzing real-world scenarios, such as network intrusions, malware attacks, and incident response workflows. The incorporation of AWS services enhances the scalability and reliability of the lab, while Terraform ensures rapid deployment and teardown of environments, promoting repeatability and experimentation.
+This lab provides a hands-on platform for executing and analyzing real-world scenarios, such as network intrusions, malware attacks, and incident response workflows. The incorporation of AWS services enhances the lab's scalability and reliability, while Terraform ensures rapid deployment and teardown of environments, promoting repeatability and experimentation.
 
 
 What is Terraform?
@@ -77,10 +77,10 @@ The tools required for this project include the following:
 Virtual machine: Windows 10 installed on VirtualBox
 Installation
 •	To install, you will need to follow these steps:
-•	AWS Account: Create  AWS Free Tier account with the required resources EC2 (For deploying workstations - Blue Team, Red Team, and victim machines), VPC (For creating isolated networking environments), IAM (AdminFullAccess), Security Groups, key Pair, AWS Command Line Interface (CLI). 
+•	AWS Account: Create an AWS Free Tier account with the required resources: EC2 (for deploying workstations—Blue Team, Red Team, and victim machines), VPC (for creating isolated networking environments), IAM (AdminFullAccess), Security Groups, key Pair, and AWS Command Line Interface (CLI). 
 •	(AWS Free Tier Account - https://aws.amazon.com/free/compute/?p=ft&z=subnav&loc=3)
 •	create a user with administrator permissions and get its ACCESS KEY and SECRET KEY
-•	Switch to eu-west-1 region in your aws console (on the browser)
+•	Switch to eu-west-1 region in your AWS console (on the browser)
 •	Go to EC2 --> Instances --> Key Pair and create a key with name ec2_key_pair (All lowercase) and save the .pem key file
 •	Copy your ec2_key_pair.pem file to your C:\Users\<your username>\.ssh folder and rename it to id_rsa
 •	AWS Cli installed
@@ -109,57 +109,60 @@ To change to prefer the region, update the main.tf file, change the region, and 
  
 ![AWS Fig2](https://github.com/user-attachments/assets/0b0f0c07-0e37-4f05-90f0-14763ad1f314)
 
-![AWS Fig2](https://github.com/user-attachments/assets/b2c32ea6-0b2d-4516-86fa-96e1b5aad79e)
- 
+Fig 5.1.1a: 
 
+![AWS Fig5](https://github.com/user-attachments/assets/e06b64ae-0926-4d6f-ba6f-50d93e64def5)
 
-![AWS Fig5](https://github.com/user-attachments/assets/44b607df-3cae-4bfe-b805-d3fd7c13ca53)
+Fig 5.1.1b: 
+
 
 
 To create an Access Key:
  
+![AWS Fig8](https://github.com/user-attachments/assets/2366a2cc-6917-4dee-97bb-38173fa1ee32)
 
-![AWS Fig8](https://github.com/user-attachments/assets/bdcba978-6df5-4a7e-87d7-bb833e1f8e52)
- 
+Fig 5.1.1c: 
 
- 
-![AWS Fig9](https://github.com/user-attachments/assets/d6627535-432b-4e4f-8981-15956af55843)
+
+![AWS Fig9](https://github.com/user-attachments/assets/9e7f733e-5b56-4d2e-b31c-241cd5c4bf07)
+
+Fig 5.1.1d:
 
 Access key and Secret access key created. These keys should be saved and will be used in the future:
- 
+Fig 5.1.1e:
 
-![AWS Fig11](https://github.com/user-attachments/assets/ca353416-1dbc-407c-b61c-0959d0c033cd)
+![AWS Fig11](https://github.com/user-attachments/assets/385c6785-33b1-434e-91a7-243f3e290d2b)
 
- 
+Fig 5.1.1f:
 
+![AWS Fig12](https://github.com/user-attachments/assets/d124cfa9-9a76-4248-bc49-a998678f51d5)
+Fig 5.1.1g:
 
-![AWS Fig12](https://github.com/user-attachments/assets/b40c1c38-5ded-4898-8e75-b77a68b4509c)
 
 5.1.3	Create Key pair
 Search for ec2. On the dashboard, select Keypair under the Resources
+
+![AWS Fig13](https://github.com/user-attachments/assets/d3092007-bc9a-4c5e-abbd-f63049742099)
+
+Fig 5.1.3a:
+
+![AWS Fig15](https://github.com/user-attachments/assets/a40e0c93-971c-4661-be6a-68211da96bd1)
  
+Fig 5.1.3b:
 
-![AWS Fig13](https://github.com/user-attachments/assets/6f81757b-728e-459a-8e7a-d3f7cb2f7e27)
-
+Keypair – ec2_key_pair created in the Downloads. Select the Downloads:
  
+![AWS Fig17](https://github.com/user-attachments/assets/0cd62ced-2967-42eb-81a4-b334c1807a48)
 
-![AWS Fig15](https://github.com/user-attachments/assets/4b7ff9a0-959f-4708-aeaa-1d633e1e3e29)
-
-Keypair – ec2_key_pair created in the folder Downloads. Select the Downloads:
- 
-
-![AWS Fig17](https://github.com/user-attachments/assets/c1b60dff-c3e3-47c3-b55c-cacd66427f84)
+Fig 5.1.3c:
 
 
 Created a folder named “.ssh” in C:\Users\samar
+
+![AWS Fig18](https://github.com/user-attachments/assets/dac8ecec-104b-4c07-be2a-4c0284a5a979)
  
+Fig 5.1.3d:
 
-![AWS Fig18](https://github.com/user-attachments/assets/ce821717-adbc-4cf8-8d17-f74b16e7d2c3)
-
-
- 
-
- 
 
 Save the Key – ec2_key_pair in .ssh folder 
  
