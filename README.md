@@ -5,7 +5,7 @@ The recent development in the IT industry has necessitated the use of necessary 
 
 ## 1.0	Introduction
 As the world becomes increasingly digital, the frequency and sophistication of cyberattacks continue to rise, making it crucial for cybersecurity professionals to stay ahead of emerging threats. In-depth investigation and threat hunting are vital practices for identifying, analyzing, and mitigating potential security incidents within any network or cloud environment. To effectively train and test cybersecurity skills, hands-on experience with real-world scenarios is essential. This project focuses on building a comprehensive cybersecurity home lab that simulates both attack and defense environments using AWS services and Infrastructure as Code (IaC) principles via Terraform.
-The lab is designed to replicate the dynamics of a real-world enterprise network. It consists of two workstations: one for the Blue Team, tasked with defending the environment, and one for the Red Team, simulating malicious attackers. The Red Team workstation is equipped with tools and frameworks to emulate various types of cyberattacks, including penetration testing and exploit simulations. On the other hand, the Blue Team workstation is configured with various monitoring, detection, and response tools, enabling the detection and mitigation of simulated threats in real time.
+The lab is designed to replicate the dynamics of a real-world enterprise network. It consists of two workstations: one for the Blue Team, tasked with defending the environment, and one for the Red Team, simulating malicious attackers. The Red Team workstation is equipped with tools and frameworks to emulate various types of cyberattacks, including penetration testing and exploit simulations. On the other hand, the Blue Team workstation is configured with various monitoring, detection, and response tools, enabling the detection and mitigation of simulated threats in real-time.
 By leveraging Terraform, a powerful IaC tool, the entire infrastructure can be provisioned, configured, and maintained in an automated, repeatable, and consistent manner. Terraform allows for the dynamic creation of resources in AWS, including EC2 instances, security groups, IAM roles, and networking setups. This project utilizes a variety of AWS services such as EC2 for virtual machines, S3 for storage, VPC for networking, and CloudWatch for monitoring and log analysis. The combination of Terraform and AWS services enables an efficient, scalable, and cost-effective environment that mirrors real-world cybersecurity challenges.
 
 
@@ -102,18 +102,19 @@ To change to prefer the region, update the main.tf file, change the region, and 
 
 ## 5.0	Result:
 # 5.1 Step 1: AWS Setup
-5.1.1 AWS Account: Create an  AWS Free Tier account with the required resources EC2 (For deploying workstations - Blue Team, Red Team, and victim machines), VPC (For creating isolated networking environments), IAM (AdminFullAccess), Security Groups, key Pair, AWS Command Line Interface (CLI). 
+5.1.1 AWS Account: Create an  AWS Free Tier account with the required resources EC2 (For deploying workstations - Blue Team, Red Team, and victim machines), VPC (For creating isolated networking environments), IAM (AdminFullAccess), Security Groups, Key Pair, AWS Command Line Interface (CLI). 
 
 (AWS Free Tier Account - https://aws.amazon.com/free/compute/?p=ft&z=subnav&loc=3)
-5.1.2 Create AWS Full administrative Access for user in IAM
+
+5.1.2 Create AWS Full administrative Access for users in IAM
  
 ![AWS Fig2](https://github.com/user-attachments/assets/0b0f0c07-0e37-4f05-90f0-14763ad1f314)
 
-Fig 5.1.1a: 
+Fig 5.1.2a: 
 
 ![AWS Fig5](https://github.com/user-attachments/assets/e06b64ae-0926-4d6f-ba6f-50d93e64def5)
 
-Fig 5.1.1b: 
+Fig 5.1.2b: 
 
 
 
@@ -121,22 +122,22 @@ To create an Access Key:
  
 ![AWS Fig8](https://github.com/user-attachments/assets/2366a2cc-6917-4dee-97bb-38173fa1ee32)
 
-Fig 5.1.1c: 
+Fig 5.1.2c: 
 
 
 ![AWS Fig9](https://github.com/user-attachments/assets/9e7f733e-5b56-4d2e-b31c-241cd5c4bf07)
 
-Fig 5.1.1d:
+Fig 5.1.2d:
 
 Access key and Secret access key created. These keys should be saved and will be used in the future:
-Fig 5.1.1e:
+Fig 5.1.2e:
 
 ![AWS Fig11](https://github.com/user-attachments/assets/385c6785-33b1-434e-91a7-243f3e290d2b)
 
-Fig 5.1.1f:
+Fig 5.1.2f:
 
 ![AWS Fig12](https://github.com/user-attachments/assets/d124cfa9-9a76-4248-bc49-a998678f51d5)
-Fig 5.1.1g:
+Fig 5.1.2g:
 
 
 5.1.3	Create Key pair
@@ -163,55 +164,55 @@ Created a folder named “.ssh” in C:\Users\samar
  
 Fig 5.1.3d:
 
+Save the Key – ec2_key_pair in .ssh folder
+![AWS Fig19](https://github.com/user-attachments/assets/e2cc6faf-603d-4505-8cbf-944e0c0d60b9)
 
-Save the Key – ec2_key_pair in .ssh folder 
- 
-
-![AWS Fig19](https://github.com/user-attachments/assets/34eb840f-8e35-4cee-9043-7f35652c9ccc)
+Fig 5.1.3e:
 
 Rename the “ec2_key_pair” to id.rsa
+
+![AWS Fig20](https://github.com/user-attachments/assets/263a2701-e94d-4622-a2be-72e275423d36)
  
+Fig 5.1.3f:
 
-![AWS Fig20](https://github.com/user-attachments/assets/e927e44b-0db3-4ad5-9361-0a2034717d95)
-
-
-5.1.3 – Installing AWS Command Line Interface
+5.1.4 – Installing AWS Command Line Interface
 Browse 
 Scroll down to Windows  and copy the command:
- 
 
-![AWS Fig21](https://github.com/user-attachments/assets/df85b595-7926-4fa9-b220-46683b6ac2d2)
+![AWS Fig21](https://github.com/user-attachments/assets/c9ea7ef1-484d-4b57-8983-52ef128f4821)
 
-
+Fig 5.1.4a
 
 Paste the command in the CMD
  
+![AWS Fig22](https://github.com/user-attachments/assets/f124c765-86e3-44e2-9c6f-cf13332f4e31)
 
-![AWS Fig22](https://github.com/user-attachments/assets/b2dbf79a-c41a-4e69-9dcc-aaee58224310)
-
- 
+Fig 5.1.4b
 
 ![AWS Fig23](https://github.com/user-attachments/assets/a91efb70-40ec-446f-9a08-3ac892e8b578)
 
+Fig 5.1.4c
  
+![AWS Fig24](https://github.com/user-attachments/assets/3a45a4c0-8656-4c67-8fac-1e8d3a1164aa)
 
-![AWS Fig24](https://github.com/user-attachments/assets/cc233f98-daec-478d-9e29-b0f9081f0d50)
- 
+Fig 5.1.4d
 
-![AWS Fig26](https://github.com/user-attachments/assets/b02a9d89-2223-495d-bac9-6ac2537b9748)
+![AWS Fig26](https://github.com/user-attachments/assets/78dee38d-e175-49ee-91a5-833e5bd40b5b)
 
+Fig 5.1.4e
 
 AWS CLI successfully installed:
- 
 
-![AWS Fig29](https://github.com/user-attachments/assets/545fbc57-5bfc-4cf2-860b-78d3333fdeac)
+![AWS Fig29](https://github.com/user-attachments/assets/69af947e-a9da-4608-9d2b-bd596fc137fb)
 
+Fig 5.1.4e
 
 Input the Access key and Secret access key previously generated
  
+![AWS Fig30a](https://github.com/user-attachments/assets/a31b354f-8dd4-4d43-b6ec-23b540ff1341)
 
+Fig 5.1.4f
 
-![AWS Fig30a](https://github.com/user-attachments/assets/e5c67662-dfd5-41de-b868-cad3f914f462)
 
 # 5.2 Terraform Installation
 Steps to install 
