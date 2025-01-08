@@ -188,8 +188,7 @@ Paste the command in the CMD
 ![AWS Fig22](https://github.com/user-attachments/assets/f124c765-86e3-44e2-9c6f-cf13332f4e31)
 
 Fig 5.1.4b
-
-![AWS Fig23](https://github.com/user-attachments/assets/a91efb70-40ec-446f-9a08-3ac892e8b578)
+![AWS Fig23](https://github.com/user-attachments/assets/7c1f5202-3981-4a24-9d23-530c91375c0e)
 
 Fig 5.1.4c
  
